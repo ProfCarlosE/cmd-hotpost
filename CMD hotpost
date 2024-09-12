@@ -1,0 +1,13 @@
+Desativar hotpost
+1. Pressione a tecla da bandeira do Windows + X, e selecione Windows Powershell(Admin)
+2. Cole os comandos abaixo e pressione a tecla Enter ao fim de cada linha:
+
+
+
+CMD
+
+REG ADD HKLM\Software\Microsoft\Windows\CurrentVersion\SharedAccess /v EnableRebootPersistConnection /d 4 /f
+
+REG ADD HKLM\SYSTEM\CurrentControlSet\Services\ICSSVC /v Start /t REG_DWORD /d 4 /f
+
+sc config icssvc start= disabled
